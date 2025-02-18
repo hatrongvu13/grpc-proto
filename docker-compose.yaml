@@ -1,0 +1,5 @@
+services:
+  image:
+    build: ./
+    container_name: application_service
+    restart: always
