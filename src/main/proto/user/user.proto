@@ -8,24 +8,23 @@ message User {
   string username = 2;
   string email = 3;
   string phone = 4;
-  string full_name = 5;
+  string roles = 5;
+  string full_name = 6;
 }
 
 message FindUserRequest {
-  string user_id = 1;
-  string username = 2;
-  string email = 3;
+  repeated string username = 1;
+  repeated string email = 2;
 }
 
 message UserResponse {
   string message = 1;
   repeated User data = 2;
-  int32 current_page = 3;
-  int32 range_of_record = 4;
-  int32 total_record = 5;
+  int64 current_page = 3;
+  int64 total_record = 4;
 }
 
-service UserManagerService {
+service UserService {
   rpc findUser(FindUserRequest) returns (UserResponse);
-  rpc streamUser(stream FindUserRequest) returns (UserResponse);
+  rpc findUsers(stream FindUserRequest) returns (UserResponse);
 }
