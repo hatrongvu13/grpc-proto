@@ -12,12 +12,12 @@ message Yoosee {
   string full_name = 6;
 }
 
-message FindUserRequest {
+message FindYooseeRequest {
   repeated string username = 1;
   repeated string email = 2;
 }
 
-message UserResponse {
+message YooseeResponse {
   string message = 1;
   repeated Yoosee data = 2;
   int64 current_page = 3;
@@ -25,6 +25,6 @@ message UserResponse {
 }
 
 service UserService {
-  rpc findUser(FindUserRequest) returns (UserResponse);
-  rpc findUsers(stream FindUserRequest) returns (UserResponse);
+  rpc findUser(FindYooseeRequest) returns (YooseeResponse);
+  rpc findUsers(stream FindYooseeRequest) returns (YooseeResponse);
 }
