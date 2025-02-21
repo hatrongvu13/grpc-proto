@@ -24,7 +24,7 @@ message YooseeResponse {
   int64 total_record = 4;
 }
 
-service UserService {
+service YooseeService {
   rpc findUser(FindYooseeRequest) returns (YooseeResponse);
   rpc findUsers(stream FindYooseeRequest) returns (YooseeResponse);
 }
