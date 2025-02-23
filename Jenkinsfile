@@ -78,7 +78,7 @@ pipeline {
         GITHUB_TOKEN = credentials('github_credential')
         GITHUB_USERNAME = 'hatrongvu13'
         GITHUB_REPOSITORY = 'grpc-proto'
-        TELEGRAM_TOKEN =  credentials('telegram_credential') //'1977594188:AAH6f9mjUjl1HVqj5LEeoJq9dyxq7WfvsmE'
+        TELEGRAM_TOKEN =  credentials('telegram_credential')
         CHAT_ID = '-4088493477'
     }
 
