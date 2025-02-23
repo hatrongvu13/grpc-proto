@@ -13,7 +13,7 @@
     <repository>
       <id>github</id>
       <name>GitHub Packages</name>
-      <url>https://maven.pkg.github.com/hatrongvu13/grpc-proto.git</url>
+      <url>https://maven.pkg.github.com/hatrongvu13/grpc-proto</url>
     </repository>
   </distributionManagement>
 
