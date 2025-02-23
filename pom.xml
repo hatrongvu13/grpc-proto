@@ -9,6 +9,13 @@
 
   <name>grpc-proto</name>
   <url>http://maven.apache.org</url>
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub Packages</name>
+      <url>https://maven.pkg.github.com/hatrongvu13/grpc-proto.git</url>
+    </repository>
+  </distributionManagement>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
