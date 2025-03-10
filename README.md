@@ -143,6 +143,7 @@ pipeline {
 </settings>
 ```
 * Thêm cấu hình vào pom.xml
+  * Tạo file .github/workflows/maven-packages.yaml với nội dung:
 ```xml
 <distributionManagement>
    <repository>
@@ -162,4 +163,38 @@ mvn deploy -DrepositoryId=github \
                     -Durl=https://maven.pkg.github.com/${GITHUB_USERNAME}/${GITHUB_REPOSITORY} \
                     -Dusername=${GITHUB_USER} \
                     -Dpassword=${GITHUB_TOKEN}
+```
+
+## Sử dụng github Action để thao tác CI thay cho Jenkins
+```yaml
+name: Build and Publish Maven Package
+
+on:
+  push:
+    branches:
+      - main  # Thay đổi nhánh nếu cần (ví dụ: master)
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout mã nguồn từ repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Cài đặt JDK (Java Development Kit)
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      # Build dự án Maven và đẩy artifact lên GitHub Packages
+      - name: Build with Maven and Publish to GitHub Packages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}  # Sử dụng PAT từ secrets
+        run: |
+          mvn -B package --file pom.xml
+          mvn -B deploy --file pom.xml -DskipTests
 ```
