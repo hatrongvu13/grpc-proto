@@ -143,7 +143,6 @@ pipeline {
 </settings>
 ```
 * Thêm cấu hình vào pom.xml
-  * Tạo file .github/workflows/maven-packages.yaml với nội dung:
 ```xml
 <distributionManagement>
    <repository>
@@ -166,6 +165,7 @@ mvn deploy -DrepositoryId=github \
 ```
 
 ## Sử dụng github Action để thao tác CI thay cho Jenkins
+* Tạo file .github/workflows/maven-packages.yaml với nội dung:
 ```yaml
 name: Build and Publish Maven Package
 
